@@ -1,26 +1,88 @@
 [
-  { "name": "Pictorio", "type": "paste", "status": "live", "url": "https://pictorio.mflworkshop.example",
+  {
+    "name": "Pictorio",
+    "type": "paste",
+    "status": "live",
+    "url": "https://pictorio.fjrecalde30.workers.dev",
     "desc": "Turn a vocabulary list into picture flashcards. Choose clipart or photos, switch to scaffolded or blank labels for quizzing, then print or export to PowerPoint.",
-    "paste": "a vocabulary list", "get": "picture flashcards and slides" },
-  { "name": "Activity maker", "type": "paste", "status": "live", "url": "#demo",
+    "paste": "a vocabulary list",
+    "get": "picture flashcards and slides",
+    "slug": "pictorio",
+    "how": [
+      "Paste or type your vocabulary, one word or phrase per line.",
+      "Pick clipart, photos or anything, and a grid size.",
+      "Switch labels to full, scaffolded or blank for quizzing.",
+      "Print the grid or export it to PowerPoint."
+    ],
+    "note": "Pictures come from Pixabay, Wikimedia Commons, Openverse and Pexels. Each card shows its source and licence, and the PowerPoint export adds a credits slide.",
+    "icon": "pictures"
+  },
+  {
+    "name": "Activity maker",
+    "type": "paste",
+    "status": "live",
+    "url": "/tools/#demo",
     "desc": "Turn a list of sentences or vocabulary into gap fills, jumbled sentences, match ups, missing letters and a sentence builder grid.",
-    "paste": "sentences or a word list", "get": "5 activities with answers" },
-  { "name": "Sentence Builder Maker", "type": "paste", "status": "soon",
+    "paste": "sentences or a word list",
+    "get": "5 activities with answers",
+    "slug": "activity-maker"
+  },
+  {
+    "name": "Sentence Builder Maker",
+    "type": "paste",
+    "status": "soon",
     "desc": "Build a sentence builder grid from your chosen structures, ready to display or print.",
-    "paste": "your structures", "get": "a printable sentence builder" },
-  { "name": "Morning Retrieval", "type": "paste", "status": "soon",
+    "paste": "your structures",
+    "get": "a printable sentence builder",
+    "slug": "sentence-builder-maker"
+  },
+  {
+    "name": "Morning Retrieval",
+    "type": "paste",
+    "status": "soon",
     "desc": "A quick retrieval starter for the first five minutes of a lesson.",
-    "paste": "recent vocabulary", "get": "a retrieval starter" },
-  { "name": "Easy Cover", "type": "cover", "status": "soon", "url": "#cover",
+    "paste": "recent vocabulary",
+    "get": "a retrieval starter",
+    "slug": "morning-retrieval"
+  },
+  {
+    "name": "Easy Cover",
+    "type": "cover",
+    "status": "soon",
+    "url": "/tools/#cover",
     "desc": "Printable cover work from your key words, with a word bank, tasks and answers for the cover supervisor.",
-    "paste": "20 to 30 key words", "get": "a cover sheet with answers" },
-  { "name": "Translation practice builder", "type": "paste", "status": "soon",
+    "paste": "20 to 30 key words",
+    "get": "a cover sheet with answers",
+    "slug": "easy-cover"
+  },
+  {
+    "name": "Translation practice builder",
+    "type": "paste",
+    "status": "soon",
     "desc": "Paste sentences in Spanish and English and get translation tasks in both directions, with model answers.",
-    "paste": "sentence pairs", "get": "two way translation tasks" },
-  { "name": "Lesson Prompt Generator", "type": "plan", "status": "soon",
-    "desc": "Step by step prompts that help you plan a lesson with an AI assistant, so the output fits your class." },
-  { "name": "90 word task planner", "type": "plan", "status": "soon",
-    "desc": "Plan GCSE writing around the bullet points, with key structures and a paragraph frame." },
-  { "name": "Speaking mock helper", "type": "other", "status": "soon",
-    "desc": "Teacher scripts and mark scheme notes for running GCSE speaking mocks with a whole class." }
+    "paste": "sentence pairs",
+    "get": "two way translation tasks",
+    "slug": "translation-practice-builder"
+  },
+  {
+    "name": "Lesson Prompt Generator",
+    "type": "plan",
+    "status": "soon",
+    "desc": "Step by step prompts that help you plan a lesson with an AI assistant, so the output fits your class.",
+    "slug": "lesson-prompt-generator"
+  },
+  {
+    "name": "90 word task planner",
+    "type": "plan",
+    "status": "soon",
+    "desc": "Plan GCSE writing around the bullet points, with key structures and a paragraph frame.",
+    "slug": "90-word-task-planner"
+  },
+  {
+    "name": "Speaking mock helper",
+    "type": "other",
+    "status": "soon",
+    "desc": "Teacher scripts and mark scheme notes for running GCSE speaking mocks with a whole class.",
+    "slug": "speaking-mock-helper"
+  }
 ]
