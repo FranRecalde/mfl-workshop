@@ -1,0 +1,94 @@
+[
+  {
+    "slug": "school-subjects-sentence-builder",
+    "title": "School subjects sentence builder",
+    "summary": "Give opinions on school subjects with porque es. A sentence builder, gap fill, translation, free writing and a speaking task, with a separate answer page.",
+    "language": "Spanish",
+    "level": "KS3",
+    "years": "Years 7 to 9",
+    "topic": "School",
+    "pages": 3,
+    "file": "school-subjects-sentence-builder.pdf",
+    "image": "school-subjects-sentence-builder.png",
+    "added": "2026-11-05",
+    "price": "free"
+  },
+  {
+    "slug": "gcse-spanish-revision-packs",
+    "title": "GCSE Spanish revision packs",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Theme by theme vocabulary",
+      "Translation practice with answers",
+      "Foundation and Higher versions"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  },
+  {
+    "slug": "sentence-builders",
+    "title": "Sentence builders",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Key Stage 3 and GCSE topics",
+      "Display and print versions",
+      "Follow up writing tasks"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  },
+  {
+    "slug": "cover-lessons",
+    "title": "Cover lessons",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Full lessons a non specialist can run",
+      "Instructions and sign off",
+      "Answer sheets included"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  },
+  {
+    "slug": "speaking-and-writing",
+    "title": "Speaking and writing",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Photo card and role play practice",
+      "90 and 150 word task frames",
+      "Model answers"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  },
+  {
+    "slug": "department-leader-kit",
+    "title": "Department leader kit",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Templates and checklists",
+      "Parent revision leaflet",
+      "Assessment trackers"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  },
+  {
+    "slug": "phonics-and-sounds",
+    "title": "Phonics and sounds",
+    "price": "",
+    "summary": "",
+    "includes": [
+      "Spanish sound and spelling cards",
+      "Short daily routines",
+      "Audio scripts"
+    ],
+    "payhipUrl": "",
+    "status": "soon"
+  }
+]

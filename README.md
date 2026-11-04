@@ -1,6 +1,6 @@
 # MFL Workshop
 
-Free tools and resources for language teachers. A Kindstack project.
+Free tools and resources for language teachers.
 
 The site is plain HTML, built by a small script with no dependencies, and hosted on Cloudflare Workers.
 
@@ -10,18 +10,17 @@ The site is plain HTML, built by a small script with no dependencies, and hosted
 |---|---|
 | Site name, domain, Substack, Easy Cover link | `src/config.json` |
 | Tool cards | `src/data/tools.json` |
-| Free resources | `src/data/resources.json` plus the files in `src/files/` and `src/images/` |
-| Shop packs and Payhip buttons | `src/data/products.json` |
-| Page text (home, tools, blog, shop) | `src/pages/*.html` |
+| Shop: free resources and paid packs | `src/data/shop.json` plus the files in `src/files/` and `src/images/` |
+| Page text (home, tools, blog) | `src/pages/*.html` |
 | Colours and layout | `src/assets/site.css` |
 | Activity maker | `src/assets/activity-maker.js` |
 
-Every resource gets its own page at `/resources/<slug>/` with its own Facebook and WhatsApp preview picture.
+Every live tool gets its own page at `/tools/<slug>/`, and every shop item that is ready gets its own page at `/shop/<slug>/` with its own Facebook and WhatsApp preview picture. Old `/resources/` links redirect to `/shop/`.
 
 ## Add a free resource
 
 1. Put the PDF in `src/files/` and a preview picture (1200 x 630 PNG works best for Facebook) in `src/images/`.
-2. Add an entry to `src/data/resources.json`:
+2. Add an entry to `src/data/shop.json` with `"price": "free"`:
 
 ```json
 {
@@ -35,21 +34,22 @@ Every resource gets its own page at `/resources/<slug>/` with its own Facebook a
   "pages": 2,
   "file": "family-members-gap-fill.pdf",
   "image": "family-members-gap-fill.png",
-  "added": "2026-11-12"
+  "added": "2026-11-12",
+  "price": "free"
 }
 ```
 
 3. Commit to `main`. Cloudflare rebuilds the site in about a minute.
 
-The link to share is `https://<your domain>/resources/family-members-gap-fill/`.
+The link to share is `https://<your domain>/shop/family-members-gap-fill/`.
 
 ## Add a tool
 
-Add an entry to `src/data/tools.json`. `type` is one of `paste`, `plan`, `cover` or `other`; `status` is `live` or `soon`. Each tool lives in its own repo and its own Cloudflare Worker, at its own address such as `https://pictorio.<your domain>`.
+Add an entry to `src/data/tools.json` with a `slug`, `name`, `type` (`paste`, `plan`, `cover` or `other`), `status` (`live` or `soon`), `desc` and `url`. Optional: `paste` and `get` for the Paste → Get line, `how` (a list of steps), `note`, and `image` (a screenshot in `src/images/`). Each tool lives in its own repo and its own Cloudflare Worker, at its own address such as `https://pictorio.<your domain>`.
 
 ## Sell a pack
 
-Create the product on Payhip, then paste its link into `payhipUrl` for that pack in `src/data/products.json`. The card shows a Buy button.
+Create the product on Payhip. In `src/data/shop.json`, set that pack's `price` (for example `"£4"`) and paste its link into `payhipUrl`. The card then links to its own page with a Buy button.
 
 ## Preview on your computer
 
