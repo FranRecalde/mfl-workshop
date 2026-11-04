@@ -1,0 +1,91 @@
+  <section class="phead gutter">
+    <div class="wide">
+      <span class="over">Tools</span>
+      <h1 class="h1">Tools for the jobs that eat your evening</h1>
+      <p class="lead muted">Most tools follow one pattern: paste your words or sentences, pick an activity, and use it straight away. Some do other jobs, such as planning or cover.</p>
+    </div>
+  </section>
+
+  <section class="gutter" aria-label="Tool list" style="padding-top:24px">
+    <div class="wide" style="display:flex;flex-direction:column;gap:20px">
+      {{TOOL_FILTERS}}
+      {{TOOL_GRID}}
+    </div>
+  </section>
+
+  <section class="gutter" id="demo" aria-labelledby="demo-h">
+    <div class="wide" style="display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="over">Live demo</span>
+        <h2 id="demo-h" class="h2">Activity maker</h2>
+        <p class="muted" style="max-width:680px">Paste sentences (one per line) or a word list (<code>español = English</code>). The activities update as you type.</p>
+      </div>
+      <div class="demo">
+        <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+          <div class="field">
+            <div class="label" id="samples-l">Load an example</div>
+            <div class="mini" role="group" aria-labelledby="samples-l">
+              <button class="btn btn-secondary btn-sm" type="button" data-sample="sent">Spanish sentences</button>
+              <button class="btn btn-secondary btn-sm" type="button" data-sample="words">Spanish word list</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="input">Your words or sentences</label>
+            <textarea id="input" spellcheck="false"></textarea>
+            <p class="detected" id="detected" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <div class="label" id="act-l">Activity</div>
+            <div class="seg" id="acts" role="group" aria-labelledby="act-l"></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-secondary btn-sm" type="button" id="shuffle">Shuffle again</button>
+            <button class="btn btn-secondary btn-sm" type="button" id="answers" aria-pressed="false">Show answers</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+          <div class="sheet" id="sheet" aria-live="polite"></div>
+          <div class="actions">
+            <button class="btn btn-primary" type="button" id="copy">Copy activity</button>
+            <span class="toast" id="toast" role="status"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gutter" id="cover" aria-labelledby="cover-h">
+    <div class="wide cover">
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+        <span class="over">Cover work</span>
+        <h2 id="cover-h" class="h2">Easy Cover</h2>
+        <p class="lead">Off sick? Set cover in a few minutes. Paste the key words you are teaching and get a printable sheet the cover supervisor can run without you.</p>
+        <ol class="steps">
+          <li><span class="n">1</span><span><b>Paste 20 to 30 key words</b> with their meanings, one per line.</span></li>
+          <li><span class="n">2</span><span><b>Choose the class</b> and the subject: MFL, history, geography, science or RE.</span></li>
+          <li><span class="n">3</span><span><b>Print the sheet</b> with a word bank, tasks and an answer sheet.</span></li>
+        </ol>
+        <div class="plans">
+          <div class="plan">
+            <span class="h4">Free sheet</span>
+            <ul><li>Your own key words</li><li>Word bank, matching task and recall challenge</li><li>Answer sheet</li></ul>
+          </div>
+          <div class="plan">
+            <span class="h4">Plus lesson pack</span>
+            <ul><li>Built from the lesson you upload</li><li>Tasks for the whole lesson</li><li>Instructions and sign off for the cover teacher</li></ul>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-cover" href="{{EASYCOVER_URL}}">Visit easycoverlesson.com</a>
+          <span class="badge b-soon">Coming soon</span>
+        </div>
+      </div>
+      <div class="cover-sheet" aria-label="Example of an Easy Cover Plus sheet">
+        <div class="sh"><span>Year 9 · School subjects</span><span>Cover teacher: ________</span></div>
+        <div><b>1. Sentence builder</b><p class="i">Read this aloud. Students build 5 sentences using one box from each column.</p><p class="s">Task done ☐ &nbsp;Initials ____</p></div>
+        <div><b>2. Read the text</b><p class="i">Students read Marta's paragraph in silence for 5 minutes.</p><p class="s">Task done ☐ &nbsp;Initials ____</p></div>
+        <div><b>3. Comprehension questions</b><p class="i">Students answer in full sentences. Answers are on the last page.</p><p class="s">Task done ☐ &nbsp;Initials ____</p></div>
+        <p class="small" style="color:#4A5E57">Example sheet</p>
+      </div>
+    </div>
+  </section>
