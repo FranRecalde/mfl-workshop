@@ -15,7 +15,9 @@
       "Print the grid or export it to PowerPoint."
     ],
     "note": "Pictures come from Pixabay, Wikimedia Commons, Openverse and Pexels. Each card shows its source and licence, and the PowerPoint export adds a credits slide.",
-    "icon": "pictures"
+    "icon": "pictures",
+    "image": "pictorio.png",
+    "thumb": "pictorio-card.png"
   },
   {
     "name": "Activity maker",
@@ -25,7 +27,9 @@
     "desc": "Turn a list of sentences or vocabulary into gap fills, jumbled sentences, match ups, missing letters and a sentence builder grid.",
     "paste": "sentences or a word list",
     "get": "5 activities with answers",
-    "slug": "activity-maker"
+    "slug": "activity-maker",
+    "image": "activity-maker.png",
+    "thumb": "activity-maker-card.png"
   },
   {
     "name": "Sentence Builder Maker",
