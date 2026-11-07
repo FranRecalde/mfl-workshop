@@ -164,7 +164,7 @@ cpSync(join(SRC, "assets"), join(OUT, "assets"), { recursive: true });
 for (const d of ["files", "images"]) if (existsSync(join(SRC, d))) cpSync(join(SRC, d), join(OUT, d), { recursive: true });
 
 // Home
-page("/", { title: "", nav: "", description: config.tagline + ". Paste your words and get classroom activities, or download free resources.", body: read("pages/home.html") });
+page("/", { title: "", nav: "", description: config.tagline + ". A growing set of classroom tools, plus free resources to download.", body: read("pages/home.html") });
 
 // Tools
 const usedTypes = Object.entries(TYPES).filter(([k]) => k === "all" || tools.some(t => t.type === k));
