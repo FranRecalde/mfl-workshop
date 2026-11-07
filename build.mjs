@@ -129,7 +129,10 @@ const toolPage = t => t.status === "live" ? `/tools/${t.slug}/` : "";
 function toolCard(t) {
   const live = t.status === "live";
   const href = toolPage(t);
-  const art = `<div class="cover-art tool-art t-${esc(t.type)}" aria-hidden="true"><span class="art-icon">${icon(t.icon || t.type)}</span><span>${esc(t.name)}</span></div>`;
+  const thumb = t.thumb || t.image;
+  const art = thumb
+    ? `<div class="cover-art has-img" aria-hidden="true"><img src="/images/${esc(thumb)}" alt="" loading="lazy"></div>`
+    : `<div class="cover-art tool-art t-${esc(t.type)}" aria-hidden="true"><span class="art-icon">${icon(t.icon || t.type)}</span><span>${esc(t.name)}</span></div>`;
   const flow = t.paste ? `<p class="flow"><b>Paste:</b> ${esc(t.paste)} &nbsp;→&nbsp; <b>Get:</b> ${esc(t.get)}</p>` : "";
   return `<article class="product${live ? " is-link" : ""}" data-group="${esc(t.type)}">
   ${live ? `<a class="art-link" href="${href}" tabindex="-1">${art}</a>` : art}
@@ -164,7 +167,7 @@ cpSync(join(SRC, "assets"), join(OUT, "assets"), { recursive: true });
 for (const d of ["files", "images"]) if (existsSync(join(SRC, d))) cpSync(join(SRC, d), join(OUT, d), { recursive: true });
 
 // Home
-page("/", { title: "", nav: "", description: config.tagline + ". Paste your words and get classroom activities, or download free resources.", body: read("pages/home.html") });
+page("/", { title: "", nav: "", description: config.tagline + ". A growing set of classroom tools, plus free resources to download.", body: read("pages/home.html") });
 
 // Tools
 const usedTypes = Object.entries(TYPES).filter(([k]) => k === "all" || tools.some(t => t.type === k));
