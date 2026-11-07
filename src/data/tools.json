@@ -32,6 +32,24 @@
     "thumb": "activity-maker-card.png"
   },
   {
+    "name": "Magic Storybook",
+    "type": "paste",
+    "status": "live",
+    "url": "https://magic-storybook.fjrecalde30.workers.dev",
+    "desc": "Turn a Gemini Storybook PDF into editable PowerPoint slides with separate pictures and text, plus six reading activities and a printable A4 worksheet.",
+    "slug": "magic-storybook",
+    "how": [
+      "Make a story in Gemini Storybook and save it as a PDF.",
+      "Drop the PDF in. Pictures and text are split onto separate slides and the language is detected.",
+      "Check the slides, then generate story ordering, picture matching, gap fill and more.",
+      "Download the PowerPoint and print the worksheet with answers."
+    ],
+    "note": "Everything runs in your browser. Your PDF is not uploaded anywhere.",
+    "icon": "pictures",
+    "image": "magic-storybook.png",
+    "thumb": "magic-storybook-card.png"
+  },
+  {
     "name": "Sentence Builder Maker",
     "type": "paste",
     "status": "soon",
