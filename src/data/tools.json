@@ -35,7 +35,7 @@
     "name": "Magic Storybook",
     "type": "paste",
     "status": "live",
-    "url": "https://magic-storybook.fjrecalde30.workers.dev",
+    "url": "https://magic-story-book.fjrecalde30.workers.dev",
     "desc": "Turn a Gemini Storybook PDF into editable PowerPoint slides with separate pictures and text, plus six reading activities and a printable A4 worksheet.",
     "slug": "magic-storybook",
     "how": [
