@@ -65,3 +65,29 @@ Then open `dist/index.html`, or run `npm run dev` for a local Cloudflare preview
 2. Build command: `npm run build`. Deploy command: `npx wrangler deploy`. Leave the root directory empty.
 3. After the first deploy: Settings → Domains & Routes → Add custom domain → your domain.
 4. Set `siteUrl` in `src/config.json` to the real address, so Facebook previews and the sitemap use it.
+
+## Visitor analytics (PostHog)
+
+Paste your PostHog project key (starts with `phc_`) into `posthogKey` in `src/config.json`. If your PostHog project is in the US region, also change `posthogHost` to `https://us.i.posthog.com`. While the key is empty, there is no banner and no tracking.
+
+Visitors see a cookie banner. PostHog only loads for people who choose Accept. "Cookie settings" in the footer lets them change their mind. The code is in `src/assets/analytics.js`.
+
+Named events, on top of PostHog's own page views and clicks:
+
+| Event | When |
+|---|---|
+| `tool_opened` | Open button on a tool's page (`tool` = slug) |
+| `resource_downloaded` | Download free PDF (`item` = slug) |
+| `buy_clicked` | Buy button (`item`, `price`) |
+| `subscribe_clicked` | Subscribe button |
+| `activity_copied` | Copy activity in the Activity maker (`activity`) |
+
+To track a new button, add `data-track="event_name"` to it. Any other `data-*` on it is sent along.
+
+To track a tool that lives in its own repo, add this line before `</body>` in its HTML. The banner and the choice are shared with the main site:
+
+```html
+<script src="https://themflworkshop.co.uk/assets/analytics.js" data-mask="all" defer></script>
+```
+
+`data-mask="all"` hides all page text in session recordings, so words teachers paste never show up there.
