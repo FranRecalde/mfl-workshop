@@ -77,11 +77,12 @@ ${body}
       <span>Better tools. Less friction.</span>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px">
-      <nav class="links" aria-label="Footer"><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/shop/">Shop</a><a href="/privacy/">Privacy</a></nav>
+      <nav class="links" aria-label="Footer"><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/shop/">Shop</a><a href="/privacy/">Privacy</a>${config.posthogKey ? `<a href="/privacy/#cookies" data-cookie-settings>Cookie settings</a>` : ""}</nav>
       <span class="small">Contact: <span style="user-select:all">${esc(config.contactEmail)}</span> · © ${new Date().getFullYear()} ${esc(config.siteName)}</span>
     </div>
   </div>
 </footer>
+<script src="/assets/analytics.js" defer></script>
 ${scripts}
 </body>
 </html>
@@ -106,7 +107,7 @@ const signup = () => {
         <p>${live ? "One short email when new free resources, tools or blog posts go up. Unsubscribe any time." : "The email list is not open yet. When it is, you can sign up here."}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
-        ${live ? `<a class="btn btn-primary" href="${esc(sub)}/subscribe">Subscribe for free</a><a href="${esc(sub)}">Read the blog on Substack</a>` : `<span class="btn btn-secondary" aria-disabled="true" style="opacity:.6;cursor:default">Subscribe for free</span>`}
+        ${live ? `<a class="btn btn-primary" href="${esc(sub)}/subscribe" data-track="subscribe_clicked">Subscribe for free</a><a href="${esc(sub)}">Read the blog on Substack</a>` : `<span class="btn btn-secondary" aria-disabled="true" style="opacity:.6;cursor:default">Subscribe for free</span>`}
       </div>
     </div>
   </section>`;
@@ -164,6 +165,12 @@ function shopCard(i) {
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
 cpSync(join(SRC, "assets"), join(OUT, "assets"), { recursive: true });
+// Analytics: fill in the PostHog key, host and cookie domain (see src/assets/analytics.js)
+writeFileSync(join(OUT, "assets/analytics.js"), read("assets/analytics.js")
+  .replace("__POSTHOG_KEY__", config.posthogKey || "")
+  .replace("__POSTHOG_HOST__", config.posthogHost || "https://eu.i.posthog.com")
+  .replace("__COOKIE_DOMAIN__", new URL(config.siteUrl).hostname.replace(/^www\./, ""))
+  .replace("__PRIVACY_URL__", abs("/privacy/#cookies")));
 for (const d of ["files", "images"]) if (existsSync(join(SRC, d))) cpSync(join(SRC, d), join(OUT, d), { recursive: true });
 
 // Home
@@ -191,7 +198,7 @@ for (const t of tools.filter(t => t.status === "live")) {
           <p class="lead">${esc(t.desc)}</p>
           ${t.paste ? `<p class="flow"><b>Paste:</b> ${esc(t.paste)} &nbsp;→&nbsp; <b>Get:</b> ${esc(t.get)}</p>` : ""}
           ${t.how ? `<div style="display:flex;flex-direction:column;gap:8px"><h2 class="h4">How it works</h2><ol class="how">${t.how.map(s => `<li>${esc(s)}</li>`).join("")}</ol></div>` : ""}
-          <div class="actions"><a class="btn btn-primary" href="${esc(t.url)}"${ext ? ' target="_blank" rel="noopener"' : ""}>Open ${esc(t.name)}</a><a class="btn btn-secondary" href="/tools/">All tools</a></div>
+          <div class="actions"><a class="btn btn-primary" href="${esc(t.url)}"${ext ? ' target="_blank" rel="noopener"' : ""} data-track="tool_opened" data-tool="${esc(t.slug)}">Open ${esc(t.name)}</a><a class="btn btn-secondary" href="/tools/">All tools</a></div>
           ${t.note ? `<p class="note-box">${esc(t.note)}</p>` : ""}
         </div>
       </div>
@@ -232,7 +239,7 @@ for (const i of shop.filter(isReady)) {
           <h1 class="h1">${esc(i.title)}</h1>
           ${i.summary ? `<p class="lead">${esc(i.summary)}</p>` : ""}
           <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
-          <div class="actions">${free ? `<a class="btn btn-primary" href="/files/${esc(i.file)}" download>Download free PDF</a>` : `<a class="btn btn-primary" href="${esc(i.payhipUrl)}">Buy for ${esc(i.price)}</a>`}<a class="btn btn-secondary" href="/shop/">Back to the shop</a></div>
+          <div class="actions">${free ? `<a class="btn btn-primary" href="/files/${esc(i.file)}" download data-track="resource_downloaded" data-item="${esc(i.slug)}">Download free PDF</a>` : `<a class="btn btn-primary" href="${esc(i.payhipUrl)}" data-track="buy_clicked" data-item="${esc(i.slug)}" data-price="${esc(i.price)}">Buy for ${esc(i.price)}</a>`}<a class="btn btn-secondary" href="/shop/">Back to the shop</a></div>
           ${free ? `<p class="note-box">Free to use and copy in your own classroom and school. Please do not sell it or upload it to other sites.</p>` : ""}
         </div>
       </div>
@@ -251,6 +258,10 @@ page("/privacy/", { title: "Privacy", nav: "", description: `How ${config.siteNa
     <p class="lead">The free tools on ${esc(config.siteName)} run in your browser. Nothing you paste into a tool is sent to us or stored by us.</p>
     <p>Free downloads need no account and no email address. If you subscribe to the email list, that sign up is handled by Substack under its own privacy policy. Purchases are handled by our shop provider under its own policy.</p>
     <p>Do not paste pupil names or other personal data into any tool.</p>
+    ${config.posthogKey ? `<h2 class="h3" id="cookies">Cookies and analytics</h2>
+    <p>If you choose Accept on the cookie banner, we use PostHog analytics on this site and on our tools (the addresses ending in ${esc(new URL(config.siteUrl).hostname)}). It tells us which pages and tools are used, which buttons are clicked, where visitors came from, how long they stay, and the type of device and browser. It may also record how you move around a page, so we can find what is confusing. Anything you type or paste into a tool is hidden in those recordings.</p>
+    <p>We use this only to improve the site. It does not identify you by name, and it is not used for advertising. The data is stored by PostHog in the EU and kept for up to a year.</p>
+    <p>If you choose No thanks, no analytics cookies are set and nothing is collected. We remember your choice with one small cookie. You can change your mind at any time: <a href="#cookies" data-cookie-settings>Cookie settings</a>.</p>` : ""}
     <p>Questions: <span style="user-select:all">${esc(config.contactEmail)}</span></p>
   </div></section>` });
 

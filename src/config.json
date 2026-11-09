@@ -5,5 +5,7 @@
   "contactEmail": "support@kindstack.uk",
   "substackUrl": "",
   "easyCoverUrl": "https://easycoverlesson.com",
-  "payhipStoreUrl": ""
+  "payhipStoreUrl": "",
+  "posthogKey": "phc_n2qkG37C6cDXXEFWineWBtLSbnH8ytiL7XjUpPqTdXDj",
+  "posthogHost": "https://eu.i.posthog.com"
 }

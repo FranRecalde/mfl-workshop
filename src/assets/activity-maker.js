@@ -127,6 +127,7 @@ document.querySelectorAll("[data-sample]").forEach(b => b.addEventListener("clic
 $("#copy").addEventListener("click", () => {
   const done = m => { $("#toast").textContent = m; setTimeout(() => $("#toast").textContent = "", 2500); };
   if (!plain) return done("Paste some words first.");
+  window.mflTrack && window.mflTrack("activity_copied", { activity: act });
   try {
     navigator.clipboard.writeText(plain).then(() => done("Copied. Paste it into Word or Google Docs."), () => { selectSheet(); done("Copy blocked here. The sheet is selected: press Ctrl+C."); });
   } catch (_) { selectSheet(); done("Copy blocked here. The sheet is selected: press Ctrl+C."); }
