@@ -41,11 +41,11 @@ Every live tool gets its own page at `/tools/<slug>/`, and every shop item that 
 
 3. Commit to `main`. Cloudflare rebuilds the site in about a minute.
 
-The link to share is `https://<your domain>/shop/family-members-gap-fill/`.
+The link to share is `https://themflworkshop.co.uk/shop/family-members-gap-fill/`.
 
 ## Add a tool
 
-Add an entry to `src/data/tools.json` with a `slug`, `name`, `type` (`paste`, `plan`, `cover` or `other`), `status` (`live` or `soon`), `desc` and `url`. Optional: `paste` and `get` for the Paste → Get line, `how` (a list of steps), `note`, and `image` (a screenshot in `src/images/`). Each tool lives in its own repo and its own Cloudflare Worker, at its own address such as `https://pictorio.<your domain>`.
+Add an entry to `src/data/tools.json` with a `slug`, `name`, `type` (`paste`, `plan`, `cover` or `other`), `status` (`live` or `soon`), `desc` and `url`. Optional: `paste` and `get` for the Paste → Get line, `how` (a list of steps), `note`, and `image` (a screenshot in `src/images/`). Each tool lives in its own repo and its own Cloudflare Worker, at its own address such as `https://pictorio.themflworkshop.co.uk`.
 
 ## Sell a pack
 

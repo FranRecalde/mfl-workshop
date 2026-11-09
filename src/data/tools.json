@@ -3,7 +3,7 @@
     "name": "Pictorio",
     "type": "paste",
     "status": "live",
-    "url": "https://pictorio.fjrecalde30.workers.dev",
+    "url": "https://pictorio.themflworkshop.co.uk",
     "desc": "Turn a vocabulary list into picture flashcards. Choose clipart or photos, switch to scaffolded or blank labels for quizzing, then print or export to PowerPoint.",
     "paste": "a vocabulary list",
     "get": "picture flashcards and slides",
@@ -35,7 +35,7 @@
     "name": "Magic Storybook",
     "type": "paste",
     "status": "live",
-    "url": "https://magic-story-book.fjrecalde30.workers.dev",
+    "url": "https://magicstorybook.themflworkshop.co.uk",
     "desc": "Turn a Gemini Storybook PDF into editable PowerPoint slides with separate pictures and text, plus six reading activities and a printable A4 worksheet.",
     "slug": "magic-storybook",
     "how": [
